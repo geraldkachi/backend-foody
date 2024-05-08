@@ -6,7 +6,6 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 dotenv.config()
-
 // Current IP Address (102.89.47.65/32) added!
 // https://tailwindflex.com/tag/pricing
 // https://play.tailwindcss.com/FGMEFZKqXw
