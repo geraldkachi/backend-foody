@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 const CategoryRoute = require('./routes/category')
 const app = express();
 const port = process.env.PORT || 3000;
+const uri = process.env.MONGODB_URI || 'mongodb+srv://fitzgeraldkachi:lOuYnPyGhkFcDBLL@foodie.axm7hl4.mongodb.net/';
 
 const hbs = require('hbs')
 hbs.registerPartials(__dirname + '/views/partials')
@@ -33,8 +34,7 @@ hbs.registerHelper('getFullYear', () => {
 })
 app.set('view engine', 'hbs')
 
-const uri = process.env.MONGODB_URI;
-console.log(uri)
+console.log("life",String(uri))
 
 dotenv.config() 
 // Current IP Address (102.89.47.65/32) added!
@@ -46,7 +46,7 @@ mongoose.connect(String(uri),
 )
 .then(() => {console.log('Foodly Database is Connected')})
 .catch((error) => console.log(error))
-.finally(() => {console.log('MongoDB connection final:')})
+.finally(() => {console.log('MongoDB connection final:', String(uri))})
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
