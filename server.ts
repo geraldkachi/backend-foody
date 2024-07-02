@@ -33,16 +33,20 @@ hbs.registerHelper('getFullYear', () => {
 })
 app.set('view engine', 'hbs')
 
+const uri = process.env.MONGODB_URI;
+console.log(uri)
 
-dotenv.config()
+dotenv.config() 
 // Current IP Address (102.89.47.65/32) added!
 // https://tailwindflex.com/tag/pricing
 // https://play.tailwindcss.com/FGMEFZKqXw
 
-mongoose.connect(String(process.env.MONGODB_URI))
+mongoose.connect(String(uri), 
+// { useNewUrlParser: true, useUnifiedTopology: true }
+)
 .then(() => {console.log('Foodly Database is Connected')})
 .catch((error) => console.log(error))
-.finally(() => {console.log()})
+.finally(() => {console.log('MongoDB connection final:')})
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
