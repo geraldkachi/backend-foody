@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 const CategoryRoute = require('./routes/category')
 const app = express();
 const port = process.env.PORT || 3000;
-const uri = process.env.MONGODB_URI || 'mongodb+srv://fitzgeraldkachi:lOuYnPyGhkFcDBLL@foodie.axm7hl4.mongodb.net/';
+const uri = process.env.MONGODB_URI || 'mongodb+srv://fitzgeraldkachi:<password>@foodie.axm7hl4.mongodb.net/?retryWrites=true&w=majority&appName=foodie';
 
 const hbs = require('hbs')
 hbs.registerPartials(__dirname + '/views/partials')
